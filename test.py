@@ -15,8 +15,7 @@ logging.basicConfig(filename='example.log',level=logging.INFO)
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code "+str(rc))
 
-    # Subscribing in on_connect() means that if we lose the connection and
-    # reconnect then subscriptions will be renewed.
+    # Subscribing in on_connect() means that if we lose the connection and reconnect then subscriptions will be renewed.
     client.subscribe(config['MQTT_SERVER']['mqtt_feed'])
 
 # The callback for when a PUBLISH message is received from the server.
@@ -31,6 +30,6 @@ client.on_message = on_message
 client.connect(config['MQTT_SERVER']['mqtt_url'], 1883, 60)
 client.loop_start()
 for x in range(1,10):
-    time.sleep(1) #note that this does not block the MQTT loop at all. Yay!
+    time.sleep(1) #Note that this does not block the MQTT loop at all. Yay!
     print x
 client.loop_stop()
