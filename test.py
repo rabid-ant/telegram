@@ -26,7 +26,7 @@ updater = Updater(token=config['KEYS']['bot_token'])
 dispatcher = updater.dispatcher
 
 ######## Start of MQTT Functionality ############
-# The callback for when the client receives a CONNACK response from the server.
+# The callback for when the client receives a CONNACK response from the server
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code "+str(rc))
 
